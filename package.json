@@ -1,0 +1,24 @@
+{
+  "name": "css-color-function",
+  "repository": "git://github.com/ianstormtaylor/css-color-function.git",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "A parse and convert for Tab Atkins's proposed color function in CSS.",
+  "keywords": [
+    "color",
+    "function",
+    "css",
+    "parse",
+    "convert"
+  ],
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "rgb": "0.0.1",
+    "debug": "~0.7.4",
+    "color": "~0.5.0",
+    "balanced-match": "0.0.0"
+  }
+}

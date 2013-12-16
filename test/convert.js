@@ -1,0 +1,201 @@
+
+var assert = require('assert');
+var color = require('..');
+
+function convert (string, expected) {
+  string = 'color(' + string + ')';
+  assert.equal(color.convert(string), expected);
+}
+
+describe('#convert', function () {
+
+  describe('red', function () {
+    it('should set red', function () {
+      convert('red red(25)', 'rgb(25, 0, 0)');
+    });
+
+    it('should set red by percentage', function () {
+      convert('red red(10%)', 'rgb(26, 0, 0)');
+    });
+
+    it('should add red', function () {
+      convert('black red(+ 25)', 'rgb(25, 0, 0)');
+    });
+
+    it('should add red by percentage', function () {
+      convert('black red(+ 10%)', 'rgb(26, 0, 0)');
+    });
+
+    it('should subtract red', function () {
+      convert('rgb(50, 0, 0) red(- 25)', 'rgb(25, 0, 0)');
+    });
+
+    it('should subtract red by percentage', function () {
+      convert('rgb(50, 0, 0) red(- 10%)', 'rgb(24, 0, 0)');
+    });
+
+    it('should multiply red', function () {
+      convert('rgb(250, 0, 0) red(* .1)', 'rgb(25, 0, 0)');
+    });
+
+    it('should multiply red by percentage', function () {
+      convert('rgb(100, 0, 0) red(* 10%)', 'rgb(110, 0, 0)');
+    });
+  });
+
+  describe('green', function () {
+    it('should set green', function () {
+      convert('green green(25)', 'rgb(0, 25, 0)');
+    });
+
+    it('should set green by percentage', function () {
+      convert('green green(10%)', 'rgb(0, 26, 0)');
+    });
+
+    it('should add green', function () {
+      convert('black green(+ 25)', 'rgb(0, 25, 0)');
+    });
+
+    it('should add green by percentage', function () {
+      convert('black green(+ 10%)', 'rgb(0, 26, 0)');
+    });
+
+    it('should subtract green', function () {
+      convert('rgb(0, 50, 0) green(- 25)', 'rgb(0, 25, 0)');
+    });
+
+    it('should subtract green by percentage', function () {
+      convert('rgb(0, 50, 0) green(- 10%)', 'rgb(0, 24, 0)');
+    });
+
+    it('should multiply green', function () {
+      convert('rgb(0, 250, 0) green(* .1)', 'rgb(0, 25, 0)');
+    });
+
+    it('should multiply green by percentage', function () {
+      convert('rgb(0, 100, 0) green(* 10%)', 'rgb(0, 110, 0)');
+    });
+  });
+
+  describe('blue', function () {
+    it('should set blue', function () {
+      convert('blue blue(25)', 'rgb(0, 0, 25)');
+    });
+
+    it('should set blue by percentage', function () {
+      convert('blue blue(10%)', 'rgb(0, 0, 26)');
+    });
+
+    it('should add blue', function () {
+      convert('black blue(+ 25)', 'rgb(0, 0, 25)');
+    });
+
+    it('should add blue by percentage', function () {
+      convert('black blue(+ 10%)', 'rgb(0, 0, 26)');
+    });
+
+    it('should subtract blue', function () {
+      convert('rgb(0, 0, 50) blue(- 25)', 'rgb(0, 0, 25)');
+    });
+
+    it('should subtract blue by percentage', function () {
+      convert('rgb(0, 0, 50) blue(- 10%)', 'rgb(0, 0, 24)');
+    });
+
+    it('should multiply blue', function () {
+      convert('rgb(0, 0, 250) blue(* .1)', 'rgb(0, 0, 25)');
+    });
+
+    it('should multiply blue by percentage', function () {
+      convert('rgb(0, 0, 100) blue(* 10%)', 'rgb(0, 0, 110)');
+    });
+  });
+
+  describe('alpha', function () {
+    it('should set alpha', function () {
+      convert('black alpha(.5)', 'rgba(0, 0, 0, 0.5)');
+    });
+
+    it('should set alpha by percentage', function () {
+      convert('black alpha(42%)', 'rgba(0, 0, 0, 0.42)');
+    });
+
+    it('should add alpha', function () {
+      convert('rgba(0,0,0,0) alpha(+ .1)', 'rgba(0, 0, 0, 0.1)');
+    });
+
+    it('should add alpha by percentage', function () {
+      convert('rgba(0,0,0,0) alpha(+ 10%)', 'rgba(0, 0, 0, 0.1)');
+    });
+
+    it('should subtract alpha', function () {
+      convert('black alpha(- .1)', 'rgba(0, 0, 0, 0.9)');
+    });
+
+    it('should subtract alpha by percentage', function () {
+      convert('black alpha(- 10%)', 'rgba(0, 0, 0, 0.9)');
+    });
+
+    it('should multiply alpha', function () {
+      convert('rgba(0,0,0,.2) alpha(* .5)', 'rgba(0, 0, 0, 0.1)');
+    });
+
+    // it('should multiply alpha by percentage', function () {
+    //   convert('rgba(0,0,0,.8) alpha(* 50%)', 'rgb(0, 0, 0)');
+    // });
+  });
+
+  describe('hue', function () {
+    it('should set hue', function () {
+      convert('hsl(34, 50%, 50%) hue(25)', 'rgb(191, 117, 64)');
+    });
+
+    it('should add hue', function () {
+      convert('hsl(10, 50%, 50%) hue(+ 15)', 'rgb(191, 117, 64)');
+    });
+
+    it('should subtract hue', function () {
+      convert('hsl(40, 50%, 50%) hue(- 15)', 'rgb(191, 117, 64)');
+    });
+
+    it('should multiply hue', function () {
+      convert('hsl(10, 50%, 50%) hue(* 2.5)', 'rgb(191, 117, 64)');
+    });
+  });
+
+  describe('saturation', function () {
+    it('should set saturation', function () {
+      convert('hsl(25, 0%, 50%) saturation(50%)', 'rgb(191, 117, 64)');
+    });
+
+    it('should add saturation', function () {
+      convert('hsl(25, 25%, 50%) saturation(+ 25%)', 'rgb(191, 117, 64)');
+    });
+
+    it('should substract saturation', function () {
+      convert('hsl(25, 60%, 50%) saturation(- 10%)', 'rgb(191, 117, 64)');
+    });
+
+    it('should multiply saturation', function () {
+      convert('hsl(25, 25%, 50%) saturation(* 2)', 'rgb(191, 117, 64)');
+    });
+  });
+
+  describe('lightness', function () {
+    it('should set lightness', function () {
+      convert('hsl(25, 50%, 0%) lightness(50%)', 'rgb(191, 117, 64)');
+    });
+
+    it('should add lightness', function () {
+      convert('hsl(25, 50%, 25%) lightness(+ 25%)', 'rgb(191, 117, 64)');
+    });
+
+    it('should substract lightness', function () {
+      convert('hsl(25, 50%, 60%) lightness(- 10%)', 'rgb(191, 117, 64)');
+    });
+
+    it('should multiply lightness', function () {
+      convert('hsl(25, 50%, 25%) lightness(* 2)', 'rgb(191, 117, 64)');
+    });
+  });
+});
