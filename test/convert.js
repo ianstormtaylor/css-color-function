@@ -198,4 +198,22 @@ describe('#convert', function () {
       convert('hsl(25, 50%, 25%) lightness(* 2)', 'rgb(191, 117, 64)');
     });
   });
+
+  describe('blend', function () {
+    it('should blend two colors', function () {
+      convert('red blend(black 50%)', 'rgb(128, 0, 0)');
+    });
+  });
+
+  describe('tint', function () {
+    it('should blend a color with white', function () {
+      convert('red tint(50%)', 'rgb(255, 128, 128)');
+    });
+  });
+
+  describe('shade', function () {
+    it('should blend a color with black', function () {
+      convert('red shade(50%)', 'rgb(128, 0, 0)');
+    });
+  });
 });

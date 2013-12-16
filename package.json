@@ -3,7 +3,7 @@
   "repository": "git://github.com/ianstormtaylor/css-color-function.git",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "A parse and convert for Tab Atkins's proposed color function in CSS.",
+  "description": "A parser and converter for Tab Atkins's proposed color function in CSS.",
   "keywords": [
     "color",
     "function",
