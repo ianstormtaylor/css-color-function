@@ -15,7 +15,7 @@ describe('#convert', function () {
     });
 
     it('should set red by percentage', function () {
-      convert('red red(10%)', 'rgb(26, 0, 0)');
+      convert('black red(10%)', 'rgb(26, 0, 0)');
     });
 
     it('should add red', function () {
@@ -23,7 +23,7 @@ describe('#convert', function () {
     });
 
     it('should add red by percentage', function () {
-      convert('black red(+ 10%)', 'rgb(26, 0, 0)');
+      convert('rgb(50, 0, 0) red(+ 10%)', 'rgb(55, 0, 0)');
     });
 
     it('should subtract red', function () {
@@ -31,7 +31,7 @@ describe('#convert', function () {
     });
 
     it('should subtract red by percentage', function () {
-      convert('rgb(50, 0, 0) red(- 10%)', 'rgb(24, 0, 0)');
+      convert('rgb(50, 0, 0) red(- 10%)', 'rgb(45, 0, 0)');
     });
 
     it('should multiply red', function () {
@@ -39,7 +39,7 @@ describe('#convert', function () {
     });
 
     it('should multiply red by percentage', function () {
-      convert('rgb(100, 0, 0) red(* 10%)', 'rgb(110, 0, 0)');
+      convert('rgb(250, 0, 0) red(* 10%)', 'rgb(25, 0, 0)');
     });
   });
 
@@ -49,7 +49,7 @@ describe('#convert', function () {
     });
 
     it('should set green by percentage', function () {
-      convert('green green(10%)', 'rgb(0, 26, 0)');
+      convert('black green(10%)', 'rgb(0, 26, 0)');
     });
 
     it('should add green', function () {
@@ -57,7 +57,7 @@ describe('#convert', function () {
     });
 
     it('should add green by percentage', function () {
-      convert('black green(+ 10%)', 'rgb(0, 26, 0)');
+      convert('rgb(0, 50, 0) green(+ 10%)', 'rgb(0, 55, 0)');
     });
 
     it('should subtract green', function () {
@@ -65,7 +65,7 @@ describe('#convert', function () {
     });
 
     it('should subtract green by percentage', function () {
-      convert('rgb(0, 50, 0) green(- 10%)', 'rgb(0, 24, 0)');
+      convert('rgb(0, 50, 0) green(- 10%)', 'rgb(0, 45, 0)');
     });
 
     it('should multiply green', function () {
@@ -73,7 +73,7 @@ describe('#convert', function () {
     });
 
     it('should multiply green by percentage', function () {
-      convert('rgb(0, 100, 0) green(* 10%)', 'rgb(0, 110, 0)');
+      convert('rgb(0, 250, 0) green(* 10%)', 'rgb(0, 25, 0)');
     });
   });
 
@@ -91,7 +91,7 @@ describe('#convert', function () {
     });
 
     it('should add blue by percentage', function () {
-      convert('black blue(+ 10%)', 'rgb(0, 0, 26)');
+      convert('rgb(0, 0, 50) blue(+ 10%)', 'rgb(0, 0, 55)');
     });
 
     it('should subtract blue', function () {
@@ -99,7 +99,7 @@ describe('#convert', function () {
     });
 
     it('should subtract blue by percentage', function () {
-      convert('rgb(0, 0, 50) blue(- 10%)', 'rgb(0, 0, 24)');
+      convert('rgb(0, 0, 50) blue(- 10%)', 'rgb(0, 0, 45)');
     });
 
     it('should multiply blue', function () {
@@ -107,7 +107,7 @@ describe('#convert', function () {
     });
 
     it('should multiply blue by percentage', function () {
-      convert('rgb(0, 0, 100) blue(* 10%)', 'rgb(0, 0, 110)');
+      convert('rgb(0, 0, 250) blue(* 10%)', 'rgb(0, 0, 25)');
     });
   });
 
@@ -125,7 +125,7 @@ describe('#convert', function () {
     });
 
     it('should add alpha by percentage', function () {
-      convert('rgba(0,0,0,0) alpha(+ 10%)', 'rgba(0, 0, 0, 0.1)');
+      convert('rgba(0,0,0,.5) alpha(+ 10%)', 'rgba(0, 0, 0, 0.55)');
     });
 
     it('should subtract alpha', function () {
@@ -140,9 +140,9 @@ describe('#convert', function () {
       convert('rgba(0,0,0,.2) alpha(* .5)', 'rgba(0, 0, 0, 0.1)');
     });
 
-    // it('should multiply alpha by percentage', function () {
-    //   convert('rgba(0,0,0,.8) alpha(* 50%)', 'rgb(0, 0, 0)');
-    // });
+    it('should multiply alpha by percentage', function () {
+      convert('rgba(0,0,0,.2) alpha(* 50%)', 'rgba(0, 0, 0, 0.1)');
+    });
   });
 
   describe('hue', function () {
