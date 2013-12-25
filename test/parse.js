@@ -189,4 +189,10 @@ describe('#parse', function () {
       ]
     });
   });
+
+  it('should throw on syntax error', function () {
+    assert.throws(function () {
+      color.parse('color(red');
+    }, /Missing closing parentheses/);
+  });
 });
