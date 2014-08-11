@@ -1,3 +1,9 @@
+
+1.0.0 - August 11, 2013
+-----------------------
+* add support for nested color functions
+* add `whiteness` and `blackness` support
+
 0.1.0 - December 25, 2013
 -------------------------
 * fix syntax errors
