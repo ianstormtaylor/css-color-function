@@ -199,6 +199,42 @@ describe('#convert', function () {
     });
   });
 
+  describe('whiteness', function () {
+    it('should set whiteness', function () {
+      convert('hwb(0, 0%, 0%) whiteness(20%)', 'rgb(255, 51, 51)'); // hwb(0, 20%, 0%)
+    });
+
+    it('should add whiteness', function () {
+      convert('hwb(0, 75%, 0%) whiteness(+25%)', 'rgb(255, 255, 255)'); // hwb(0, 100%, 0%)
+    });
+
+    it('should substract whiteness', function () {
+      convert('hwb(0, 30%, 0%) whiteness(-10%)', 'rgb(255, 51, 51)'); // hwb(0, 20%, 0%)
+    });
+
+    it('should multiply whiteness', function () {
+      convert('hwb(0, 50%, 0%) whiteness(*2)', 'rgb(255, 255, 255)'); // hwb(0, 100%, 0%)
+    });
+  });
+
+  describe('blackness', function () {
+    it('should set blackness', function () {
+      convert('hwb(0, 0%, 0%) blackness(20%)', 'rgb(204, 0, 0)'); // hwb(0, 0%, 20%)
+    });
+
+    it('should add blackness', function () {
+      convert('hwb(0, 0%, 75%) blackness(+25%)', 'rgb(0, 0, 0)'); // hwb(0, 0%, 100%)
+    });
+
+    it('should substract blackness', function () {
+      convert('hwb(0, 0%, 30%) blackness(-10%)', 'rgb(204, 0, 0)'); // hwb(0, 0%, 20%)
+    });
+
+    it('should multiply blackness', function () {
+      convert('hwb(0, 0%, 50%) blackness(*2)', 'rgb(0, 0, 0)'); // hwb(0, 0%, 100%)
+    });
+  });
+
   describe('blend', function () {
     it('should blend two colors', function () {
       convert('red blend(black 50%)', 'rgb(128, 0, 0)');

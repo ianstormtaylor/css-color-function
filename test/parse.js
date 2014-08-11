@@ -190,9 +190,69 @@ describe('#parse', function () {
     });
   });
 
+  it('should parse nested color functions', function () {
+    parse('color(hsl(0, 0%, 93%) l(-5%)) l(+10%)', {
+      type: 'function',
+      name: 'color',
+      arguments: [
+        {
+          type: 'function',
+          name: 'color',
+          arguments: [
+            {
+              type: 'color',
+              value: 'hsl(0, 0%, 93%)',
+            },
+            {
+              type: 'function',
+              name: 'l',
+              arguments: [
+                {
+                  type: 'modifier',
+                  value: '-'
+                },
+                {
+                  type: 'number',
+                  value: '5%'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          type: 'function',
+          name: 'l',
+          arguments: [
+            {
+              type: 'modifier',
+              value: '+'
+            },
+            {
+              type: 'number',
+              value: '10%'
+            }
+          ]
+        }
+      ]
+    });
+  });
+
+
   it('should throw on syntax error', function () {
     assert.throws(function () {
       color.parse('color(red');
-    }, /Missing closing parentheses/);
+    }, /Missing closing parenthese/);
+  });
+
+  it('should throw on syntax error for adjuster', function () {
+    assert.throws(function () {
+      color.parse('color(red l(+5%)');
+    }, /Missing closing parenthese for/);
+  });
+
+  it('should throw on syntax error if color() is empty', function () {
+    assert.throws(function () {
+      color.parse('color()');
+    }, /color\(\) function cannot be empty/);
   });
 });
