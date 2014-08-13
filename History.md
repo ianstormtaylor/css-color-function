@@ -1,4 +1,8 @@
 
+1.1.0 - August 12, 2013
+-----------------------
+* throw errors for unknown adjusters
+
 1.0.0 - August 11, 2013
 -----------------------
 * add support for nested color functions
