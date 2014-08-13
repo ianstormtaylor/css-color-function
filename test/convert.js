@@ -252,4 +252,18 @@ describe('#convert', function () {
       convert('red shade(50%)', 'rgb(128, 0, 0)');
     });
   });
+
+  describe('errors', function () {
+    it('should throw an error is color is unknown', function () {
+      assert.throws(function () {
+        convert('wtf');
+      }, /Unable to parse color from string/);
+    });
+
+    it('should throw an error is modifier is unknown', function () {
+      assert.throws(function () {
+        convert('red WTF(+10%)');
+      }, /Unknown <color-adjuster>/);
+    });
+  });
 });
