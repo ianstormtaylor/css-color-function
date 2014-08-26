@@ -253,6 +253,12 @@ describe('#convert', function () {
     });
   });
 
+  describe('nested color functions', function () {
+    it('should convert nested color functions', function () {
+      convert('color(rebeccapurple a(-10%)) a(-10%)', 'rgba(102, 51, 153, 0.81)');
+    });
+  });
+
   describe('errors', function () {
     it('should throw an error is color is unknown', function () {
       assert.throws(function () {
