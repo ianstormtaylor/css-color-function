@@ -1,9 +1,13 @@
 
-1.1.0 - August 12, 2013
+1.1.1 - August 26, 2014
+-----------------------
+* support nested color functions
+
+1.1.0 - August 12, 2014
 -----------------------
 * throw errors for unknown adjusters
 
-1.0.0 - August 11, 2013
+1.0.0 - August 11, 2014
 -----------------------
 * add support for nested color functions
 * add `whiteness` and `blackness` support
