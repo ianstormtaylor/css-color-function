@@ -1,4 +1,8 @@
 
+1.1.2 - November 27, 2014
+-------------------------
+* fix for nested color functions
+
 1.1.1 - August 26, 2014
 -----------------------
 * support nested color functions

@@ -1,7 +1,7 @@
 {
   "name": "css-color-function",
   "repository": "git://github.com/ianstormtaylor/css-color-function.git",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "description": "A parser and converter for Tab Atkins's proposed color function in CSS.",
   "keywords": [
