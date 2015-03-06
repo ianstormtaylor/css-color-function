@@ -1,4 +1,8 @@
 
+1.2.0 - March 6, 2015
+---------------------
+* add `contrast` support
+
 1.1.2 - November 27, 2014
 -------------------------
 * fix for nested color functions
