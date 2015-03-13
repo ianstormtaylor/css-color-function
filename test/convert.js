@@ -19,7 +19,7 @@ describe('#convert', function () {
     });
 
     it('should add red', function () {
-      convert('black red(+ 25)', 'rgb(25, 0, 0)');
+      convert('rgb(100, 0, 0) red(+ 25)', 'rgb(125, 0, 0)');
     });
 
     it('should add red by percentage', function () {
@@ -53,7 +53,7 @@ describe('#convert', function () {
     });
 
     it('should add green', function () {
-      convert('black green(+ 25)', 'rgb(0, 25, 0)');
+      convert('rgb(0, 100, 0) green(+ 25)', 'rgb(0, 125, 0)');
     });
 
     it('should add green by percentage', function () {
@@ -87,7 +87,7 @@ describe('#convert', function () {
     });
 
     it('should add blue', function () {
-      convert('black blue(+ 25)', 'rgb(0, 0, 25)');
+      convert('rgb(0, 0, 100) blue(+ 25)', 'rgb(0, 0, 125)');
     });
 
     it('should add blue by percentage', function () {
