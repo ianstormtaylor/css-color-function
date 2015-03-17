@@ -1,4 +1,8 @@
 
+1.2.1 - March 16, 2015
+----------------------
+* add coercing strings to numbers for rgba
+
 1.2.0 - March 6, 2015
 ---------------------
 * add `contrast` support
