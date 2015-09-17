@@ -18,7 +18,7 @@
   "dependencies": {
     "rgb": "~0.1.0",
     "color": "~0.7.1",
-    "balanced-match": "0.1.0"
     "debug": "~2.2.0",
+    "balanced-match": "0.2.0"
   }
 }
