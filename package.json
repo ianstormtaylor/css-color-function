@@ -17,8 +17,8 @@
   "main": "lib/index.js",
   "dependencies": {
     "rgb": "~0.1.0",
-    "color": "~0.7.1",
     "debug": "~2.2.0",
+    "color": "~0.10.1",
     "balanced-match": "0.2.0"
   }
 }

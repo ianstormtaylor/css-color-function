@@ -254,27 +254,27 @@ describe('#convert', function () {
   });
 
   describe('contrast', function () {
-    it('should darken the same hue with a light color', function () {
-      convert('hwb(180, 10%, 0%) contrast(0%)', 'rgb(13, 115, 115)'); // hwb(180, 5%, 55%)
-    });
-
-    it('should lighten the same hue with a dark color', function () {
-      convert('hwb(0, 0%, 10%) contrast(0%)', 'rgb(252, 245, 245)'); // hwb(0, 96%, 1%)
-    });
-
     it('should go to black with a light color', function () {
-      convert('hwb(180, 10%, 0%) contrast(100%)', 'rgb(0, 0, 0)'); // hwb(180, 0%, 100%)
+      convert('hwb(180, 10%, 0%) contrast(0%)', 'rgb(0, 0, 0)');
     });
 
     it('should go to white with a dark color', function () {
-      convert('hwb(0, 0%, 10%) contrast(100%)', 'rgb(255, 255, 255)'); // hwb(0, 100%, 0%)
+      convert('hwb(0, 0%, 10%) contrast(0%)', 'rgb(255, 255, 255)');
+    });
+
+    it('should darken the same hue with a light color', function () {
+      convert('hwb(180, 10%, 0%) contrast(100%)', 'rgb(13, 115, 115)');
+    });
+
+    it('should lighten the same hue with a dark color', function () {
+      convert('hwb(0, 0%, 10%) contrast(100%)', 'rgb(252, 245, 245)');
     });
   });
 
   describe('nested color functions', function () {
     it('should convert nested color functions', function () {
       convert('color(rebeccapurple a(-10%)) a(-10%)', 'rgba(102, 51, 153, 0.81)');
-      convert('color(#4C5859 shade(25%)) blend(color(#4C5859 shade(40%)) 20%)', 'rgb(55, 63, 64)');
+      convert('color(#4C5859 shade(25%)) blend(color(#4C5859 shade(40%)) 20%)', 'rgb(28, 32, 33)');
     });
   });
 
