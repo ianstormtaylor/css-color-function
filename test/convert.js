@@ -150,6 +150,14 @@ describe('#convert', function () {
       convert('hsl(34, 50%, 50%) hue(25)', 'rgb(191, 117, 64)');
     });
 
+    it('should set hue greater than 360', function () {
+      convert('hsl(34, 50%, 50%) hue(385)', 'rgb(191, 117, 64)');
+    });
+
+    it('should set hue less than 360', function () {
+      convert('hsl(34, 50%, 50%) hue(-369)', 'rgb(191, 117, 64)');
+    });
+
     it('should add hue', function () {
       convert('hsl(10, 50%, 50%) hue(+ 15)', 'rgb(191, 117, 64)');
     });
@@ -160,6 +168,14 @@ describe('#convert', function () {
 
     it('should multiply hue', function () {
       convert('hsl(10, 50%, 50%) hue(* 2.5)', 'rgb(191, 117, 64)');
+    });
+
+    it('should adjust hue greater than 360', function () {
+      convert('hsl(240, 50%, 50%) hue(+ 240)', 'rgb(64, 191, 64)');
+    });
+
+    it('should adjust negative hue', function () {
+      convert('hsl(120, 50%, 50%) hue(- 240)', 'rgb(64, 64, 191)');
     });
   });
 
