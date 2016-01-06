@@ -1,4 +1,8 @@
 
+1.3.0 - January 5, 2016
+-----------------------
+* upgrade `color` to `0.11.0`
+
 1.2.1 - March 16, 2015
 ----------------------
 * add coercing strings to numbers for rgba
