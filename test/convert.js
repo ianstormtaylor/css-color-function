@@ -321,11 +321,11 @@ describe('#convert', function () {
 
   describe('contrast with alpha', function () {
     it('should go to white with a dark color and the given alpha', function() {
-      convert('#d51834 a(40%) contrast(90%)', 'rgba(255, 255, 255, 0.4)');
+      convert('black a(40%) contrast(99%)', 'rgba(255, 255, 255, 0.4)');
     });
 
     it('should go to black with a light color and the given alpha', function() {
-      convert('white a(50%) contrast(99%)', 'rgba(0, 0, 0, 0.4)');
+      convert('white a(50%) contrast(99%)', 'rgba(0, 0, 0, 0.5)');
     });
   });
 
