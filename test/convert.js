@@ -275,9 +275,29 @@ describe('#convert', function () {
     });
   });
 
+  describe('tint with alpha', function () {
+    it('should blend a color with white and adjust the alpha', function () {
+      convert('red a(40%) tint(50%)', 'rgba(255, 128, 128, 0.4)');
+    });
+
+    it('should blend a color with white and adjust the alpha', function () {
+      convert('red tint(50%) a(20%)', 'rgba(255, 128, 128, 0.2)');
+    });
+  });
+
   describe('shade', function () {
     it('should blend a color with black', function () {
       convert('red shade(50%)', 'rgb(128, 0, 0)');
+    });
+  });
+
+  describe('shade with alpha', function () {
+    it('should blend a color with black and adjust the alpha', function () {
+      convert('red a(40%) shade(50%)', 'rgba(128, 0, 0, 0.4)');
+    });
+
+    it('should blend a color with black and adjust the alpha', function () {
+      convert('red shade(50%) a(25%)', 'rgba(128, 0, 0, 0.25)');
     });
   });
 
