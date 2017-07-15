@@ -275,9 +275,29 @@ describe('#convert', function () {
     });
   });
 
+  describe('tint with alpha', function () {
+    it('should blend a color with white and adjust the alpha', function () {
+      convert('red a(40%) tint(50%)', 'rgba(255, 128, 128, 0.4)');
+    });
+
+    it('should blend a color with white and adjust the alpha', function () {
+      convert('red tint(50%) a(20%)', 'rgba(255, 128, 128, 0.2)');
+    });
+  });
+
   describe('shade', function () {
     it('should blend a color with black', function () {
       convert('red shade(50%)', 'rgb(128, 0, 0)');
+    });
+  });
+
+  describe('shade with alpha', function () {
+    it('should blend a color with black and adjust the alpha', function () {
+      convert('red a(40%) shade(50%)', 'rgba(128, 0, 0, 0.4)');
+    });
+
+    it('should blend a color with black and adjust the alpha', function () {
+      convert('red shade(50%) a(25%)', 'rgba(128, 0, 0, 0.25)');
     });
   });
 
@@ -296,6 +316,16 @@ describe('#convert', function () {
 
     it('should go to white with a dark color', function () {
       convert('hwb(0, 0%, 10%) contrast(100%)', 'rgb(255, 255, 255)'); // hwb(0, 100%, 0%)
+    });
+  });
+
+  describe('contrast with alpha', function () {
+    it('should go to white with a dark color and the given alpha', function() {
+      convert('black a(40%) contrast(99%)', 'rgba(255, 255, 255, 0.4)');
+    });
+
+    it('should go to black with a light color and the given alpha', function() {
+      convert('white a(50%) contrast(99%)', 'rgba(0, 0, 0, 0.5)');
     });
   });
 
