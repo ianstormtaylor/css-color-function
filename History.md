@@ -1,3 +1,6 @@
+1.3.1 - July 14, 2017
+-----------------------
+* Fixes Tint, Shade, and Contrast Alpha Interference Issue. `#26`
 
 1.3.0 - January 5, 2016
 -----------------------
