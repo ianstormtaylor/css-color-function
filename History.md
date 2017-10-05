@@ -1,3 +1,7 @@
+1.3.2 - October 4, 2017
+-----------------------
+* Fixes Vulnerability - Regular Expression Denial of Service caused by debug package. `#31`
+
 1.3.1 - July 14, 2017
 -----------------------
 * Fixes Tint, Shade, and Contrast Alpha Interference Issue. `#26`
