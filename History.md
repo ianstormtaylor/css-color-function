@@ -1,3 +1,6 @@
+1.3.3 - October 6, 2017
+* REVERT RELEASE: This removes the changes made in `#19` only for this release. Those changes will be added back and released in a 2.0 because they are breaking changes.
+
 1.3.2 - October 4, 2017
 -----------------------
 * Fixes Vulnerability - Regular Expression Denial of Service caused by debug package. `#31`
