@@ -150,16 +150,12 @@ describe('#convert', function () {
       convert('hsl(34, 50%, 50%) hue(25)', 'rgb(191, 117, 64)');
     });
 
-    it('should set hue with explicit positive', function () {
-      convert('hsl(34, 50%, 50%) hue(+25)', 'rgb(191, 117, 64)');
-    });
-
     it('should set hue greater than 360', function () {
       convert('hsl(34, 50%, 50%) hue(385)', 'rgb(191, 117, 64)');
     });
 
     it('should set hue less than 360', function () {
-      convert('hsl(34, 50%, 50%) hue(- 369)', 'rgb(191, 117, 64)');
+      convert('hsl(34, 50%, 50%) hue(-369)', 'rgb(191, 117, 64)');
     });
 
     it('should add hue', function () {
@@ -192,7 +188,7 @@ describe('#convert', function () {
       convert('hsl(25, 25%, 50%) saturation(+ 25%)', 'rgb(191, 117, 64)');
     });
 
-    it('should subtract saturation', function () {
+    it('should substract saturation', function () {
       convert('hsl(25, 60%, 50%) saturation(- 10%)', 'rgb(191, 117, 64)');
     });
 
@@ -210,7 +206,7 @@ describe('#convert', function () {
       convert('hsl(25, 50%, 25%) lightness(+ 25%)', 'rgb(191, 117, 64)');
     });
 
-    it('should subtract lightness', function () {
+    it('should substract lightness', function () {
       convert('hsl(25, 50%, 60%) lightness(- 10%)', 'rgb(191, 117, 64)');
     });
 
@@ -224,16 +220,12 @@ describe('#convert', function () {
       convert('hwb(0, 0%, 0%) whiteness(20%)', 'rgb(255, 51, 51)'); // hwb(0, 20%, 0%)
     });
 
-    it('should set whiteness with explicit positive', function () {
-      convert('hwb(0, 0%, 0%) whiteness(+20%)', 'rgb(255, 51, 51)'); // hwb(0, 20%, 0%)
-    });
-
     it('should add whiteness', function () {
-      convert('hwb(0, 75%, 0%) whiteness(+ 25%)', 'rgb(255, 255, 255)'); // hwb(0, 100%, 0%)
+      convert('hwb(0, 75%, 0%) whiteness(+25%)', 'rgb(255, 255, 255)'); // hwb(0, 100%, 0%)
     });
 
-    it('should subtract whiteness', function () {
-      convert('hwb(0, 30%, 0%) whiteness(- 10%)', 'rgb(255, 51, 51)'); // hwb(0, 20%, 0%)
+    it('should substract whiteness', function () {
+      convert('hwb(0, 30%, 0%) whiteness(-10%)', 'rgb(255, 51, 51)'); // hwb(0, 20%, 0%)
     });
 
     it('should multiply whiteness', function () {
@@ -246,16 +238,12 @@ describe('#convert', function () {
       convert('hwb(0, 0%, 0%) blackness(20%)', 'rgb(204, 0, 0)'); // hwb(0, 0%, 20%)
     });
 
-    it('should set blackness with explicit positive', function () {
-      convert('hwb(0, 0%, 0%) blackness(+20%)', 'rgb(204, 0, 0)'); // hwb(0, 0%, 20%)
-    });
-
     it('should add blackness', function () {
-      convert('hwb(0, 0%, 75%) blackness(+ 25%)', 'rgb(0, 0, 0)'); // hwb(0, 0%, 100%)
+      convert('hwb(0, 0%, 75%) blackness(+25%)', 'rgb(0, 0, 0)'); // hwb(0, 0%, 100%)
     });
 
-    it('should subtract blackness', function () {
-      convert('hwb(0, 0%, 30%) blackness(- 10%)', 'rgb(204, 0, 0)'); // hwb(0, 0%, 20%)
+    it('should substract blackness', function () {
+      convert('hwb(0, 0%, 30%) blackness(-10%)', 'rgb(204, 0, 0)'); // hwb(0, 0%, 20%)
     });
 
     it('should multiply blackness', function () {
@@ -331,7 +319,7 @@ describe('#convert', function () {
 
   describe('nested color functions', function () {
     it('should convert nested color functions', function () {
-      convert('color(rebeccapurple a(- 10%)) a(- 10%)', 'rgba(102, 51, 153, 0.81)');
+      convert('color(rebeccapurple a(-10%)) a(-10%)', 'rgba(102, 51, 153, 0.81)');
       convert('color(#4C5859 shade(25%)) blend(color(#4C5859 shade(40%)) 20%)', 'rgb(55, 63, 64)');
     });
   });

@@ -1,9 +1,15 @@
+1.3.3 - October 7, 2017
+-----------------------
+* REVERT RELEASE: This removes the changes made in `#19` only for this release. Those changes will be added back and released in a 2.0 because they are breaking changes.
+
 1.3.2 - October 4, 2017
 -----------------------
+* WARNING: This contains a breaking change in #19. If you need the 1.x series, use 1.3.3. Otherwise, use the 2.x series.
 * Fixes Vulnerability - Regular Expression Denial of Service caused by debug package. `#31`
 
 1.3.1 - July 14, 2017
 -----------------------
+* WARNING: This contains a breaking change in #19. If you need the 1.x series, use 1.3.3. Otherwise, use the 2.x series.
 * Fixes Tint, Shade, and Contrast Alpha Interference Issue. `#26`
 
 1.3.0 - January 5, 2016
