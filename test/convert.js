@@ -3,7 +3,7 @@ var assert = require('assert');
 var color = require('..');
 
 function convert (string, expected) {
-  string = 'color(' + string + ')';
+  string = 'color-mod(' + string + ')';
   assert.equal(color.convert(string), expected);
 }
 
@@ -331,8 +331,8 @@ describe('#convert', function () {
 
   describe('nested color functions', function () {
     it('should convert nested color functions', function () {
-      convert('color(rebeccapurple a(- 10%)) a(- 10%)', 'rgba(102, 51, 153, 0.81)');
-      convert('color(#4C5859 shade(25%)) blend(color(#4C5859 shade(40%)) 20%)', 'rgb(55, 63, 64)');
+      convert('color-mod(rebeccapurple a(- 10%)) a(- 10%)', 'rgba(102, 51, 153, 0.81)');
+      convert('color-mod(#4C5859 shade(25%)) blend(color-mod(#4C5859 shade(40%)) 20%)', 'rgb(55, 63, 64)');
     });
   });
 
