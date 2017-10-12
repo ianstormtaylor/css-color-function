@@ -191,7 +191,7 @@ describe('#parse', function () {
   });
 
   it('should parse nested color functions', function () {
-    parse('color(hsl(0, 0%, 93%) l(-5%)) l(+10%)', {
+    parse('color(hsl(0, 0%, 93%) l(- 5%)) l(+ 10%)', {
       type: 'function',
       name: 'color',
       arguments: [
@@ -237,6 +237,95 @@ describe('#parse', function () {
     });
   });
 
+  it('should properly parse modifiers', function () {
+    parse('red a(+ 5%) a(+5%) a(- 5%) a(-5%) a(* 50%) a(*50%)', {
+      type: 'function',
+      name: 'color',
+      arguments: [
+        {
+          type: 'color',
+          value: 'red',
+        },
+        {
+          type: 'function',
+          name: 'a',
+          arguments: [
+            {
+              type: 'modifier',
+              value: '+'
+            },
+            {
+              type: 'number',
+              value: '5%'
+            }
+          ]
+        },
+        {
+          type: 'function',
+          name: 'a',
+          arguments: [
+            {
+              type: 'number',
+              value: '+5%'
+            }
+          ]
+        },
+        {
+          type: 'function',
+          name: 'a',
+          arguments: [
+            {
+              type: 'modifier',
+              value: '-'
+            },
+            {
+              type: 'number',
+              value: '5%'
+            }
+          ]
+        },
+        {
+          type: 'function',
+          name: 'a',
+          arguments: [
+            {
+              type: 'number',
+              value: '-5%'
+            }
+          ]
+        },
+        {
+          type: 'function',
+          name: 'a',
+          arguments: [
+            {
+              type: 'modifier',
+              value: '*'
+            },
+            {
+              type: 'number',
+              value: '50%'
+            }
+          ]
+        },
+        {
+          type: 'function',
+          name: 'a',
+          arguments: [
+            {
+              type: 'modifier',
+              value: '*'
+            },
+            {
+              type: 'number',
+              value: '50%'
+            }
+          ]
+        }
+      ]
+    });
+  })
+
 
   it('should throw on syntax error', function () {
     assert.throws(function () {
@@ -246,7 +335,7 @@ describe('#parse', function () {
 
   it('should throw on syntax error for adjuster', function () {
     assert.throws(function () {
-      color.parse('color(red l(+5%)');
+      color.parse('color(red l(+ 5%)');
     }, /Missing closing parenthese for/);
   });
 
