@@ -1,7 +1,3 @@
-2.0.0 - October 7, 2017
------------------------
-* Require space after + and - in modifiers. See #19.
-
 1.3.3 - October 7, 2017
 -----------------------
 * REVERT RELEASE: This removes the changes made in `#19` only for this release. Those changes will be added back and released in a 2.0 because they are breaking changes.
